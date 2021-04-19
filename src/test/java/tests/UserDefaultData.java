@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyUserDefaultData {
+public class UserDefaultData {
 
   private final String firstName = "AlexName";
   private final String lastName = "AlexFamily";
@@ -78,34 +78,34 @@ public class MyUserDefaultData {
     return file;
   }
 
-  public Map<String, String> getEnteredDate() {
-    Map<String, String> enteredData = new HashMap<>();
-    enteredData.put("Student Name", firstName + " " + lastName);
-    enteredData.put("Student Email", userEmail);
-    enteredData.put("Gender", gender);
-    enteredData.put("Mobile", userNumber);
-    enteredData.put("Date of Birth", dateOfBirth + " " + monthOfBirth + "," + yearOfBirth);
-    enteredData.put("Subjects", subject);
-    enteredData.put("Hobbies", hobby);
-    enteredData.put("Picture", fileName);
-    enteredData.put("Address", currentAddress);
-    enteredData.put("State and City", state + " " + city);
-    return enteredData;
+  public Map<String, String> getExpectedDate() {
+    Map<String, String> expectedData = new HashMap<>();
+    expectedData.put("Student Name", firstName + " " + lastName);
+    expectedData.put("Student Email", userEmail);
+    expectedData.put("Gender", gender);
+    expectedData.put("Mobile", userNumber);
+    expectedData.put("Date of Birth", dateOfBirth + " " + monthOfBirth + "," + yearOfBirth);
+    expectedData.put("Subjects", subject);
+    expectedData.put("Hobbies", hobby);
+    expectedData.put("Picture", fileName);
+    expectedData.put("Address", currentAddress);
+    expectedData.put("State and City", state + " " + city);
+    return expectedData;
   }
 
-  public Map<String, String> getBadEnteredDate() {
-    Map<String, String> enteredData = new HashMap<>();
-    enteredData.put("Student Name", firstName + " " + lastName);
-    enteredData.put("Student Email", userEmail);
-    enteredData.put("Gender", gender);
-    enteredData.put("Mobile", userNumber);
-    enteredData.put("Date of Birth", dateOfBirth + " " + monthOfBirth + "," + yearOfBirth);
-    enteredData.put("Subjects", subject);
-    enteredData.put("Hobbies", hobby);
-    enteredData.put("Picture", fileName);
-    enteredData.put("Address", currentAddress);
-    enteredData.put("State and City", state + " 1" + city);
-    return enteredData;
+  public Map<String, String> getBadExpectedDate() {
+    Map<String, String> expectedData = new HashMap<>();
+    expectedData.put("Student Name", firstName + " " + lastName);
+    expectedData.put("Student Email", userEmail);
+    expectedData.put("Gender", gender);
+    expectedData.put("Mobile", userNumber);
+    expectedData.put("Date of Birth", dateOfBirth + " " + monthOfBirth + "," + yearOfBirth);
+    expectedData.put("Subjects", subject);
+    expectedData.put("Hobbies", hobby);
+    expectedData.put("Picture", fileName);
+    expectedData.put("Address", currentAddress);
+    expectedData.put("State and City", state + " 1" + city);
+    return expectedData;
   }
 
 }

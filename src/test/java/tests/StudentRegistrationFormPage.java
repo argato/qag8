@@ -1,17 +1,15 @@
 package tests;
 
 import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 
-import com.codeborne.selenide.ElementsCollection;
 import java.io.File;
 import java.util.Map;
 
-public class MyStudentRegistrationFormPage {
+public class StudentRegistrationFormPage {
 
   public void openPage() {
     open("https://demoqa.com/automation-practice-form");
@@ -29,9 +27,8 @@ public class MyStudentRegistrationFormPage {
     $("#userEmail").setValue(userEmail);
   }
 
-  public void setGenter(String genter) {
-    $("#genterWrapper [for=gender-radio-3]").shouldHave(
-        text(genter)).click();
+  public void setGenter() {
+    $("#genterWrapper [for=gender-radio-3]").click();
   }
 
   public void setUserNumber(String userNumber) {
@@ -39,8 +36,7 @@ public class MyStudentRegistrationFormPage {
   }
 
   public void setSubject(String subject) {
-    $("#subjectsInput").val(subject);
-    $(".subjects-auto-complete__menu-list").$(byText(subject)).click();
+    $("#subjectsInput").val(subject).pressEnter();
   }
 
   public void setBirthDate(String year, String month, String day) {
@@ -50,9 +46,8 @@ public class MyStudentRegistrationFormPage {
     $(".react-datepicker__month").$(byText(day)).click();
   }
 
-  public void setHobby(String hobby) {
-    $("#hobbiesWrapper [for=hobbies-checkbox-3]").shouldHave(
-        text(hobby)).click();
+  public void setHobby() {
+    $("#hobbiesWrapper [for=hobbies-checkbox-3]").click();
   }
 
   public void setFile(File file) {
@@ -65,23 +60,23 @@ public class MyStudentRegistrationFormPage {
 
   public void setState(String state) {
     $("#stateCity-wrapper #state").click();
-    $("#stateCity-wrapper #state .css-26l3qy-menu").$(byText(state)).click();
+    $("#stateCity-wrapper #state").$(byText(state)).click();
   }
 
   public void setCity(String city) {
     $("#stateCity-wrapper #city").click();
-    $("#stateCity-wrapper #city .css-26l3qy-menu").$(byText(city)).click();
+    $("#stateCity-wrapper #city").$(byText(city)).click();
   }
 
   public void submitForm() {
     $("#submit").click();
   }
 
-  public void checkData(Map<String, String> enteredData) {
-    ElementsCollection rows = $$(".modal-content tbody tr");
-    rows.forEach(row -> {
-      ElementsCollection tds = row.$$("td");
-      tds.get(1).shouldHave(exactText(enteredData.get(tds.get(0).text())));
+  public void checkData(Map<String, String> expectedData) {
+    $$(".modal-content tbody tr").snapshot().forEach(row -> {
+      String rowLabel = row.$("td").text();
+      String expectedText = expectedData.get(rowLabel);
+      row.$("td", 1).shouldHave(exactText(expectedText));
     });
   }
 
