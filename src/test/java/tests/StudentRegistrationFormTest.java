@@ -2,7 +2,9 @@ package tests;
 
 import static io.qameta.allure.Allure.step;
 
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +14,8 @@ public class StudentRegistrationFormTest extends TestBase {
 
   @Test
   @Owner("anovikova")
+  @Feature("Форма регистрации студента")
+  @Story("Проверка регистрации студента")
   @DisplayName("Тест без ошибки")
   void successfulFillTest() {
     UserDefaultData testDate = new UserDefaultData();
