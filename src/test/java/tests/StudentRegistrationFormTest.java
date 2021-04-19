@@ -12,12 +12,11 @@ public class StudentRegistrationFormTest extends TestBase {
 
   StudentRegistrationFormPage studentRegistrationFormPage = new StudentRegistrationFormPage();
 
-
+  @Test
   @Owner("anovikova")
   @Feature("Форма регистрации студента")
-  @Story("Проверка регистрации студента")
+  @Story("Проверка регистрации студента без ошибки")
   @DisplayName("Тест без ошибки")
-  @Test
   void successfulFillTest() {
     UserDefaultData testDate = new UserDefaultData();
     step("Open students registration form", () -> studentRegistrationFormPage.openPage());
@@ -45,11 +44,11 @@ public class StudentRegistrationFormTest extends TestBase {
          () -> studentRegistrationFormPage.checkData(testDate.getExpectedDate()));
   }
 
+  @Test
   @Owner("anovikova")
   @DisplayName("Тест с ошибкой")
   @Feature("Форма регистрации студента")
-  @Story("Проверка регистрации студента")
-  @Test
+  @Story("Проверка регистрации студента с ошибкой")
   void unsuccessfulFillTest() {
     UserDefaultData testDate = new UserDefaultData();
     step("Open students registration form", () -> studentRegistrationFormPage.openPage());
